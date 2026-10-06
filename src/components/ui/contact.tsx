@@ -28,7 +28,9 @@ export default function Contact() {
           <p className="contact-label">CONTACT ME</p>
           <h2>Let&apos;s Connect.</h2>
           <p className="contact-description">
-            Have a question or want to talk? Send me a message or find me here.
+            I welcome questions about my work, conversations about web development,
+            and opportunities to create useful digital experiences. Send me a
+            message or reach out through the channels below.
           </p>
           <div className="contact-mini-info">
             <p><MapPin size={17} aria-hidden="true" /> Pasuruan, East Java, Indonesia</p>
@@ -39,7 +41,7 @@ export default function Contact() {
         <form className="guest-form" onSubmit={handleSubmit}>
           <div className="guest-form-heading">
             <p className="contact-label">GUESTBOOK</p>
-            <h3>Send me a message</h3>
+            <h3>Start a conversation</h3>
           </div>
 
           <label className="guest-field">

@@ -3,6 +3,7 @@ import About from "../components/about";
 import Skills from "../components/skills";
 import Projects from "../components/project";
 import Contact from "../components/ui/contact";
+import PiMark from "../components/pi-mark";
 import { useState } from "react";
 
 export default function Home() {
@@ -10,12 +11,27 @@ export default function Home() {
 
   return (
   <main className={`space-background ${isLight ? "light-mode" : ""}`}>
+      <div className="sky-scene" aria-hidden="true">
+        <div className="evening-planet" />
+        <div className="cosmic-dust" />
+        <div className="meteor-streak" />
+        <div className="morning-sun" />
+        <div className="morning-cloud-sea" />
+        <div className="morning-cloud cloud-one" />
+        <div className="morning-cloud cloud-two" />
+        <div className="morning-cloud cloud-three" />
+        <div className="morning-cloud cloud-four" />
+        <div className="morning-cloud cloud-five" />
+      </div>
       <div className="stars" />
-      <div className="corner-brand" aria-label="Indra Anggara Putra portfolio">PI</div>
+      <div className="portfolio-grid-background" aria-hidden="true" />
+      <div className="corner-brand" aria-label="Indra Anggara Putra portfolio">
+        <PiMark variant="corner" className="pi-mark" />
+      </div>
 
       <nav className="navbar">
         <a href="#home" className="logo" aria-label="Portfolio Indra Anggara Putra">
-          <span className="logo-mark" aria-hidden="true">PI</span>
+          <span className="logo-mark" aria-hidden="true"><PiMark variant="nav" className="pi-mark" /></span>
           <span className="logo-name">PORTOFOLIO<span className="logo-dot">.</span></span>
         </a>
 

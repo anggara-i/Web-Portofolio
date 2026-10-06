@@ -16,7 +16,7 @@ export default function Projects() {
       title: "Trading Assistant",
       description:
         "A simple experiment in automated trading with AI-assisted logic.",
-      tech: "HTML • CSS • JavaScript",
+      tech: "HTML • CSS • JavaScriptnpmj",
     },
   ];
 
