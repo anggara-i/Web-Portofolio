@@ -30,6 +30,10 @@ menampilkan informasi diri, skills, projects, dan contact.
 ## Dynamic Route
 Dokumentasi route dinamis project/[id].
 
+## Halaman Not Found
+Halaman 404 ditampilkan saat pengunjung membuka halaman atau project yang tidak tersedia.
+Halaman ini menyediakan navigasi kembali ke daftar project atau ke halaman utama.
+
 ## Search Params
 Dokumentasi penggunaan SearchParams jika fitur tersebut diterapkan.
 
