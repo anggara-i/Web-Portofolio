@@ -10,14 +10,23 @@ export default function About() {
 
         <div className="about-content">
           <p>
-            I&apos;m a Software Engineering student focused on web development
-            and practical digital products. I work with HTML, CSS, JavaScript,
-            and modern web tools.
+            I&apos;m Indra Anggara Putra, a Software Engineering student at SMK
+            Negeri 1 Pasuruan with a passion for web development and digital
+            technology.
           </p>
 
           <p>
-            I learn by building small projects, refining the details, and
-            turning new ideas into better code.
+            I enjoy creating websites that combine clean design, functionality,
+            and a thoughtful user experience. Through every project, I explore
+            different technologies, strengthen my problem-solving skills, and
+            turn ideas into something that can actually be used.
+          </p>
+
+          <p>
+            I believe development is not only about writing code, but also about
+            learning how to think, create, and solve problems. I created this
+            portfolio to share my progress, keep building my skills, and take
+            meaningful steps toward the future I want to create.
           </p>
         </div>
 

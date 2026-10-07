@@ -54,17 +54,18 @@ export default function Home() {
 
       <section id="home" className="hero">
         <div className="hero-content">
-          <p className="hero-label">WELCOME TO MY PORTFOLIO</p>
+          <p className="hero-label">DESIGNING AND BUILDING FOR THE WEB</p>
           <h1>
             Hello, I&apos;m <span>Indra Anggara Putra</span>
           </h1>
-          <h2>Web Development</h2>
+          <h2>Turning ideas into thoughtful web experiences.</h2>
           <p className="hero-description">
-            I&apos;m a Software Engineering student learning to build clear,
-            useful web experiences with code.
+            I&apos;m a Software Engineering student at SMK Negeri 1 Pasuruan. I
+            created this portfolio to share my work, keep growing my skills, and
+            take meaningful steps toward the future I want to build.
           </p>
           <a href="#projects" className="hero-button">
-            Explore My Projects
+            See What I&apos;ve Built
           </a>
         </div>
 

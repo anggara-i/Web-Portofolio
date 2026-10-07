@@ -1,29 +1,32 @@
+"use client";
+
+import { useEffect, useState } from "react";
+import { supabase } from "@/lib/supabase";
+
 export default function Projects() {
-  const projects = [
-    {
-      title: "Student Management Dashboard",
-      description:
-        "A dashboard for organizing and viewing student records.",
-      tech: "Next.js",
-    },
-    {
-      title: "Personal Portfolio",
-      description:
-        "A focused portfolio for sharing my work, skills, and progress.",
-      tech: "Next.js • TypeScript",
-    },
-    {
-      title: "Trading Assistant",
-      description:
-        "A simple experiment in automated trading with AI-assisted logic.",
-      tech: "HTML • CSS • JavaScriptnpmj",
-    },
-  ];
+  const [projects, setProjects] = useState<any[]>([]);
+
+  useEffect(() => {
+    const fetchProjects = async () => {
+      const { data, error } = await supabase
+        .from("Proyek")
+        .select("*")
+        .order("id", { ascending: true });
+
+      if (error) {
+        console.error("Error fetching projects:", error);
+        return;
+      }
+
+      setProjects(data ?? []);
+    };
+
+    fetchProjects();
+  }, []);
 
   return (
     <section id="projects" className="projects-section">
       <div className="projects-container">
-
         <div className="projects-title">
           <p>MY PROJECTS</p>
           <h2>Things I Have Built.</h2>
@@ -33,16 +36,12 @@ export default function Projects() {
           {projects.map((project, index) => (
             <div className="project-card" key={index}>
               <span>0{index + 1}</span>
-
               <h3>{project.title}</h3>
-
               <p>{project.description}</p>
-
               <small>{project.tech}</small>
             </div>
           ))}
         </div>
-
       </div>
     </section>
   );
