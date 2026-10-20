@@ -12,6 +12,7 @@ body {
   background: #050b18;
   color: #e8f1ff;
   font-family: var(--font-geist-sans), sans-serif;
+  font-weight: 700;
   line-height: 1.65;
   overflow-x: hidden;
 }
@@ -20,7 +21,7 @@ h1,
 h2,
 h3,
 h4 {
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: 0;
 }
 
@@ -469,7 +470,7 @@ a {
 .hero h2 {
   font-size: 1.5rem;
   color: #aebdd4;
-  font-weight: 500;
+  font-weight: 700;
   margin-bottom: 20px;
 }
 
@@ -1047,6 +1048,15 @@ a {
   transition: 0.3s;
 }
 
+.project-card-image {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
 .project-card:hover {
   transform: translateY(-6px);
   border-color: #64d8ff;
@@ -1314,7 +1324,7 @@ a {
 
 .light-mode .contact-intro h2 {
   color: #173b45;
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .light-mode .hero h2 {
@@ -1674,7 +1684,7 @@ a {
 .guest-field span {
   color: #d5e1ee;
   font-size: 0.85rem;
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .guest-field input,
@@ -1732,6 +1742,31 @@ a {
   color: #b4c5d5;
   font-size: 0.8rem;
   line-height: 1.5;
+}
+
+.space-background:not(.light-mode) .hero h2,
+.space-background:not(.light-mode) .hero-description,
+.space-background:not(.light-mode) .about-title p,
+.space-background:not(.light-mode) .about-title h2,
+.space-background:not(.light-mode) .about-content p,
+.space-background:not(.light-mode) .project-card p,
+.space-background:not(.light-mode) .contact-description,
+.space-background:not(.light-mode) .contact-mini-info p,
+.space-background:not(.light-mode) .contact-info p,
+.space-background:not(.light-mode) .contact-info span,
+.space-background:not(.light-mode) .footer-about p,
+.space-background:not(.light-mode) .footer-links a,
+.space-background:not(.light-mode) .footer-contact a,
+.space-background:not(.light-mode) .footer-contact p,
+.space-background:not(.light-mode) .footer-bottom,
+.space-background:not(.light-mode) .guest-field span,
+.space-background:not(.light-mode) .guest-status {
+  color: #f2f6fb;
+}
+
+.space-background:not(.light-mode) .guest-field input::placeholder,
+.space-background:not(.light-mode) .guest-field textarea::placeholder {
+  color: #d9e2ec;
 }
 
 .contact-cards {
