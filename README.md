@@ -1,45 +1,24 @@
 # Web Portfolio - Indra Anggara Putra
 
-## Deskripsi
-Website portfolio pribadi yang dibuat menggunakan Next.js untuk
-menampilkan informasi diri, skills, projects, dan contact.
+Portfolio pribadi berbasis Next.js untuk menampilkan profil, skills, dan
+project.
+
+## Progres Supabase
+
+- Supabase sudah terhubung ke aplikasi.
+- Data project diambil dari tabel `Proyek` dan ditampilkan di halaman utama.
+- Gambar project menggunakan path lokal di `public/images`.
+- Build lokal berhasil.
+- Agar deploy Vercel berhasil, tambahkan `NEXT_PUBLIC_SUPABASE_URL` dan
+  `NEXT_PUBLIC_SUPABASE_ANON_KEY` di Environment Variables Vercel.
 
 ## Teknologi
-- Next.js
-- React
-- TypeScript
-- CSS / Tailwind CSS
 
-## Fitur
-- Home
-- About
-- Skills
-- Projects
-- Contact
-- Dark Mode / Light Mode
-- Responsive Design
+Next.js · React · TypeScript · Supabase
 
-## Components
-- Navbar
-- About
-- Skills
-- Projects
-- Contact
-- Footer
+## Menjalankan Project
 
-## Dynamic Route
-Dokumentasi route dinamis project/[id].
-
-## Halaman Not Found
-Halaman 404 ditampilkan saat pengunjung membuka halaman atau project yang tidak tersedia.
-Halaman ini menyediakan navigasi kembali ke daftar project atau ke halaman utama.
-
-## Search Params
-Dokumentasi penggunaan SearchParams jika fitur tersebut diterapkan.
-
-## Styling
-Dokumentasi penggunaan styling pada website.
-
-## Cara Menjalankan Project
+```bash
 npm install
 npm run dev
+```

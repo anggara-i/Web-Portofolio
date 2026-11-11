@@ -4,52 +4,63 @@ import Skills from "../components/skills";
 import Projects from "../components/project";
 import Contact from "../components/ui/contact";
 import PiMark from "../components/pi-mark";
+import PortfolioBackground from "../components/portfolio-background";
+import { LockKeyhole, Menu, X } from "lucide-react";
 import { useState } from "react";
 
 export default function Home() {
   const [isLight, setIsLight] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-  <main className={`space-background ${isLight ? "light-mode" : ""}`}>
-      <div className="sky-scene" aria-hidden="true">
-        <div className="evening-planet" />
-        <div className="cosmic-dust" />
-        <div className="meteor-streak" />
-        <div className="morning-sun" />
-        <div className="morning-cloud-sea" />
-        <div className="morning-cloud cloud-one" />
-        <div className="morning-cloud cloud-two" />
-        <div className="morning-cloud cloud-three" />
-        <div className="morning-cloud cloud-four" />
-        <div className="morning-cloud cloud-five" />
-      </div>
-      <div className="stars" />
-      <div className="portfolio-grid-background" aria-hidden="true" />
-      <div className="corner-brand" aria-label="Indra Anggara Putra portfolio">
-        <PiMark variant="corner" className="pi-mark" />
-      </div>
+    <main className={`space-background ${isLight ? "light-mode" : ""}`}>
+      <PortfolioBackground />
 
-      <nav className="navbar">
+      <nav className={`navbar${isMenuOpen ? " menu-open" : ""}`}>
         <a href="#home" className="logo" aria-label="Portfolio Indra Anggara Putra">
           <span className="logo-mark" aria-hidden="true"><PiMark variant="nav" className="pi-mark" /></span>
           <span className="logo-name">PORTOFOLIO<span className="logo-dot">.</span></span>
         </a>
 
-        <div className="nav-links">
-          <a href="#home">Home</a>
-          <a href="#about">About</a>
-          <a href="#skills">Skills</a>
-          <a href="#projects">Projects</a>
-          <a href="#contact">Contact</a>
+        <div className="nav-links" id="portfolio-navigation">
+          <a href="#home" onClick={() => setIsMenuOpen(false)}>Home</a>
+          <a href="#about" onClick={() => setIsMenuOpen(false)}>About</a>
+          <a href="#skills" onClick={() => setIsMenuOpen(false)}>Skills</a>
+          <a href="#projects" onClick={() => setIsMenuOpen(false)}>Projects</a>
+          <a href="#contact" onClick={() => setIsMenuOpen(false)}>Contact</a>
         </div>
 
         <button
-        className="theme-toggle"
-        onClick={() => setIsLight(!isLight)}
-        aria-label="Toggle theme"
-      >
-      {isLight ? "🌙" : "☀️"}
-      </button>
+          className="mobile-nav-toggle"
+          type="button"
+          aria-label={isMenuOpen ? "Tutup menu navigasi" : "Buka menu navigasi"}
+          aria-expanded={isMenuOpen}
+          aria-controls="portfolio-navigation"
+          onClick={() => setIsMenuOpen((open) => !open)}
+        >
+          {isMenuOpen ? <X size={20} aria-hidden="true" /> : <Menu size={20} aria-hidden="true" />}
+        </button>
+
+        <div className="navbar-actions">
+          <a
+            href="/admin/login"
+            className="admin-nav-shortcut"
+            aria-label="Login admin"
+            title="Login admin"
+          >
+            <LockKeyhole size={14} aria-hidden="true" />
+            Admin
+          </a>
+          <button
+            className="theme-toggle"
+            type="button"
+            onClick={() => setIsLight((light) => !light)}
+            aria-label="Toggle theme"
+            aria-pressed={isLight}
+          >
+            {isLight ? "🌙" : "☀️"}
+          </button>
+        </div>
       </nav>
 
       <section id="home" className="hero">
@@ -71,7 +82,14 @@ export default function Home() {
 
         <div className="hero-image">
           <div className="image-frame">
-            <img src="/images/fotoku.jpg" alt="Indra Anggara Putra" />
+            <img
+              src="/images/fotoku.webp"
+              alt="Indra Anggara Putra"
+              width={1536}
+              height={1024}
+              fetchPriority="high"
+              decoding="async"
+            />
           </div>
         </div>
       </section>

@@ -18,7 +18,7 @@ export default function Projects() {
     const fetchProjects = async () => {
       const { data, error } = await supabase
         .from("Proyek")
-        .select("*")
+        .select("id, title, description, category, image")
         .order("id", { ascending: true });
 
       if (error) {
@@ -48,6 +48,8 @@ export default function Projects() {
                   className="project-card-image"
                   src={project.image}
                   alt={`Pratinjau proyek ${project.title}`}
+                  loading="lazy"
+                  decoding="async"
                   onError={(event) => {
                     console.error(
                       `Error loading project image "${project.image}":`,
