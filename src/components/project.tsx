@@ -1,75 +1,40 @@
-"use client";
+import type { ProjectRecord } from "@/services/projectService";
+import ProjectImage from "./project-image";
 
-import { useEffect, useState } from "react";
-import { supabase } from "@/lib/supabase";
+interface ProjectsProps {
+  projects: ProjectRecord[];
+}
 
-type Project = {
-  id: number;
-  title: string;
-  description: string | null;
-  category: string | null;
-  image: string | null;
-};
-
-export default function Projects() {
-  const [projects, setProjects] = useState<Project[]>([]);
-
-  useEffect(() => {
-    const fetchProjects = async () => {
-      const { data, error } = await supabase
-        .from("Proyek")
-        .select("id, title, description, category, image")
-        .order("id", { ascending: true });
-
-      if (error) {
-        console.error("Error fetching projects:", error);
-        return;
-      }
-
-      setProjects(data ?? []);
-    };
-
-    fetchProjects();
-  }, []);
-
+export default function Projects({ projects }: ProjectsProps) {
   return (
-    <section id="projects" className="projects-section">
+    <section
+      id="projects"
+      className="projects-section"
+      aria-labelledby="projects-heading"
+    >
       <div className="projects-container">
         <div className="projects-title">
           <p>MY PROJECTS</p>
-          <h2>Things I Have Built.</h2>
+          <h2 id="projects-heading">Things I Have Built.</h2>
         </div>
 
         <div className="projects-grid">
+          {projects.length === 0 && (
+            <p>No projects are available right now. Please check back soon.</p>
+          )}
           {projects.map((project, index) => (
-            <article className="project-card" key={project.id}>
-              {project.image && (
-                <img
-                  className="project-card-image"
-                  src={project.image}
-                  alt={`Pratinjau proyek ${project.title}`}
-                  loading="lazy"
-                  decoding="async"
-                  onError={(event) => {
-                    console.error(
-                      `Error loading project image "${project.image}":`,
-                      event.currentTarget.src,
-                    );
-                    if (
-                      project.category?.trim().toLowerCase() === "figma" &&
-                      !event.currentTarget.src.endsWith("/images/figma.png")
-                    ) {
-                      event.currentTarget.src = "/images/figma.png";
-                      return;
-                    }
-                    event.currentTarget.hidden = true;
-                  }}
+            <article className="project-card" key={project.pengenal}>
+              {project.gambar && (
+                <ProjectImage
+                  src={project.gambar}
+                  title={project.judul}
+                  category={project.kategori}
                 />
               )}
               <span>{String(index + 1).padStart(2, "0")}</span>
-              <h3>{project.title}</h3>
-              <p>{project.description}</p>
-              <small>{project.category}</small>
+              <h3>{project.judul}</h3>
+              {project.keterangan && <p>{project.keterangan}</p>}
+              {project.kategori && <small>{project.kategori}</small>}
             </article>
           ))}
         </div>

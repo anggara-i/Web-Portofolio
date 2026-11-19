@@ -1,6 +1,14 @@
 
 import { createClient } from "@/lib/supabase-server";
 
+export interface ProjectRecord {
+  pengenal: number;
+  judul: string;
+  kategori: string;
+  gambar: string;
+  keterangan: string;
+}
+
 export interface ProjectInput {
   judul: string;
   kategori: string;
@@ -17,8 +25,7 @@ function toDatabaseProject(project: ProjectInput) {
   };
 }
 
-// Mengambil semua data proyek
-export async function getProjects() {
+export async function getProjects(): Promise<ProjectRecord[]> {
   const supabase = await createClient();
 
   const { data, error } = await supabase
@@ -28,7 +35,7 @@ export async function getProjects() {
 
   if (error) throw new Error(error.message);
 
-  return data.map((project) => ({
+  return (data ?? []).map((project) => ({
     pengenal: project.id,
     judul: project.title ?? "",
     kategori: project.category ?? "",
